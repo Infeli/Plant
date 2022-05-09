@@ -17,8 +17,6 @@ public class Main {
             System.out.println("Loading error: \n" + FILENAME + "\n" + ex.getLocalizedMessage());
         }
 
-        Plant p1 = new Plant("Fialka", "Bez popisu", LocalDate.of(2022, 05, 9), LocalDate.of(2022, 05, 15), 3);
 
-        p1.getWateringInfo();
     }
 }
