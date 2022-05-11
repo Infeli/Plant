@@ -20,7 +20,7 @@ public class Plant {
 
     public Plant(String name, LocalDate planted, int frequencyOfWatering){
         this.name = name;
-        this.notes = " ";
+        this.notes = "";
         this.planted = planted;
         this.watering = LocalDate.now();
         this.frequencyOfWatering = frequencyOfWatering;
@@ -28,7 +28,7 @@ public class Plant {
 
     public Plant(String name){
         this.name = name;
-        this.notes = " ";
+        this.notes = "";
         this.planted = LocalDate.now();
         this.watering = LocalDate.now();
         this.frequencyOfWatering = 7;
