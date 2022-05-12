@@ -1,12 +1,14 @@
 package com.engeto.lekce05;
 
-
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDate;
 
 public class Main {
 
     public static final String FILENAME = "kvetiny.txt";
     public static final String DELIMITER = "\t";
+    public static final String COPY = "C:\\Users\\PechD\\IdeaProjects\\Git\\Plant\\kvetiny-copy.txt";
 
     public static void main(String[] args) {
 
@@ -28,6 +30,14 @@ public class Main {
         plants.removePlant(p2);
         // zápis do kolekce
         plants.writeToFile(FILENAME, DELIMITER);
+
+        // Vytvoření kopie
+
+        try {
+            Files.copy(Path.of(FILENAME), Path.of(COPY));
+        }catch (Exception ex){
+            System.out.println("Error");
+        }
 
     }
 }
