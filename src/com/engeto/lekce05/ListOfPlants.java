@@ -83,8 +83,4 @@ public class ListOfPlants {
         plantList.remove(plant);
     }
 
-    public void readPlant(Plant plant){
-
-        plantList.indexOf(plant); //get index
-    }
 }
