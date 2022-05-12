@@ -3,6 +3,7 @@ package com.engeto.lekce05;
 import java.io.*;
 import java.lang.invoke.StringConcatException;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -41,12 +42,16 @@ public class ListOfPlants {
                 frequencyOfWatering = Integer.parseInt(items[4]);
 
                 result.addPlant(new Plant(name, notes, planted, watering, frequencyOfWatering));
-
             }
-
-        } catch (StringIndexOutOfBoundsException ex) {
-            throw new PlantException("Špatně zadaný název: " + items[0] + " na řádku číslo: " + lineNumber + "\n" + ex.getLocalizedMessage());
-
+        }
+        catch (StringIndexOutOfBoundsException ex) {
+            throw new PlantException("Invalid name or notes! " + items[0] + items[1] + " on the line: " + lineNumber + "\n" + ex.getLocalizedMessage());
+        }
+        catch (DateTimeParseException ex){
+            throw new PlantException("Invalid date of planted or watering: " + items[2] + items[3] + " on the line: " + lineNumber + "\n" + ex.getMessage());
+        }
+        catch (NumberFormatException ex){
+            throw new PlantException("Invalid form of frequency! Must be number! " + items[4] + " on the line: " + lineNumber + "\n" + ex.getLocalizedMessage());
         }
         catch (FileNotFoundException ex) {
             throw new PlantException("File: " + filename + " has not been found ... " + ex.getLocalizedMessage());
@@ -69,7 +74,6 @@ public class ListOfPlants {
             ex.printStackTrace();
         }
     }
-
 
     public void addPlant(Plant plant){
         plantList.add(plant);
