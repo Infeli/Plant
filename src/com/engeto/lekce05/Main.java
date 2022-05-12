@@ -1,6 +1,6 @@
 package com.engeto.lekce05;
 
-import java.io.IOException;
+
 import java.time.LocalDate;
 
 public class Main {
@@ -18,9 +18,16 @@ public class Main {
             System.out.println("Loading error: " + FILENAME + "\n" + ex.getLocalizedMessage());
         }
 
-
-
-
+        // Vytvoření 2 nových květin
+        Plant p1 = new Plant("Pampeliška", " ", LocalDate.of(2022, 05, 10),LocalDate.of(2022, 05, 11), 5);
+        Plant p2 = new Plant("Tulipán", " bez poznámky", LocalDate.of(2022, 05, 10),LocalDate.of(2022, 05, 11), 5);
+        // přidání do kolekce
+        plants.addPlant(p1);
+        plants.addPlant(p2);
+        // odebrání květiny 2 z kolekce
+        plants.removePlant(p2);
+        // zápis do kolekce
+        plants.writeToFile(FILENAME, DELIMITER);
 
     }
 }
