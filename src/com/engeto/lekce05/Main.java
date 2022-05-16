@@ -9,7 +9,7 @@ public class Main {
 
     public static final String FILENAME = "kvetiny.txt";
     public static final String DELIMITER = "\t";
-    public static final String COPY = "C:\\Users\\PechD\\IdeaProjects\\Git\\Plant\\kvetiny-copy.txt";
+    public static final String COPY = "kvetiny-copy.txt";
 
     static Logger logger =Logger.getLogger("com.engeto.lekce05");
 
@@ -42,7 +42,7 @@ public class Main {
         try {
             Files.copy(Path.of(FILENAME), Path.of(COPY));
         }catch (Exception ex){
-            logger.warning("Error");
+            logger.warning("Error" + ex.getMessage());
         }
 
     }
